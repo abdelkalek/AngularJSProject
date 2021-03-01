@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Title</title>
+</head>
+<body >
+<div ng-app="myapp" ng-controller="studentController">
+    <p>First Name:<input type="text" ng-model="student.firstName"></p>
+    <p>Last Name:<input type="text" ng-model="student.lastName"></p>
+    <p></p>Full Name: {{student.fullName()}}
+</div>
+<script>
+    var myapp = angular.module('myapp',[]);
+    myapp.controller('studentController', function ($scope)
+    {
+        $scope.student={
+            firstName:"foulen",
+            lastName:"ben foulen",
+            fullName:function()
+            {
+                var studentObject;
+                studentObject =$scope.student;
+                return studentObject.firstName + " "+studentObject.lastName;
+            }
+
+        };
+    });
+
+</script>
+</body>
+</html>
